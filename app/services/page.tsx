@@ -1,117 +1,139 @@
 import Nav from '@/components/Nav'
 import Footer from '@/components/Footer'
-import Marquee from '@/components/Marquee'
 import Link from 'next/link'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Services de Conciergerie, Gestion de Villa & Butler | Maison Monnier',
   description: 'Maison Monnier prend en charge l\'ensemble de la gestion de votre résidence : supervision du personnel, coordination technique, préparation des séjours et services de conciergerie privée.',
-  keywords: ['conciergerie luxe côte d\'azur', 'gestion villa france', 'butler privé', 'placement personnel maison', 'gestion résidence UHNW'],
 }
 
 const services = [
   {
-    num: '01', name: 'Gestion Opérationnelle', tag: 'Résidences',
-    hero: 'NOUS PRENONS EN CHARGE L\'INTÉGRALITÉ DES ASPECTS TECHNIQUES ET STRUCTURELS',
+    num: '01',
+    name: 'Gestion Opérationnelle',
+    tag: 'NOUS PRENONS EN CHARGE L\'INTÉGRALITÉ DES ASPECTS TECHNIQUES ET STRUCTURELS',
+    img: 'https://framerusercontent.com/images/T8gA0CqG7jRqTKwP4Z969SaJk4.jpg',
+    headline: 'Une présence discrète, une organisation irréprochable',
     body: 'Chaque séjour se doit d\'avoir une organisation sans faille. Maison Monnier prend en charge la gestion opérationnelle complète de votre résidence : préparation des lieux, coordination des équipes, conciergerie privée, suivi des demandes sur mesure et supervision après le départ.',
-    role: 'Notre rôle est d\'anticiper vos besoins avant même que vous ne les exprimiez.',
-    img: 'https://framerusercontent.com/images/T8gA0CqG7jRqTKwP4Z969SaJk4.jpg',
+    role: 'Vous offrir la sérénité d\'une propriété parfaitement gérée, en toute discrétion.',
   },
   {
-    num: '02', name: 'Conciergerie Privée', tag: 'Sur mesure',
-    hero: 'UN SERVICE ENTIÈREMENT PERSONNALISÉ, D\'UNE DISCRÉTION ABSOLUE',
-    body: 'De la réservation de tables dans les meilleurs restaurants à l\'organisation de transferts privés, notre conciergerie anticipe chaque désir. Nous gérons chaque demande avec la même attention, qu\'il s\'agisse d\'un bouquet de fleurs ou d\'un yacht privé.',
-    role: 'Sélection des intervenants, suivi opérationnel, contrôle de l\'avancement et respect de vos préférences.',
+    num: '02',
+    name: 'Conciergerie Privée',
+    tag: 'UNE CONCIERGERIE ULTRA-DISCRÈTE DÉDIÉE AUX PROPRIÉTAIRES ET VOYAGEURS',
     img: 'https://framerusercontent.com/images/EiAonMC4JhuW4zETmljLJLXzJnk.jpg',
+    headline: 'L\'art d\'anticiper chacun de vos besoins',
+    body: 'Maison Monnier met à votre disposition un service de conciergerie privée pensé pour répondre à chacune de vos attentes, avec réactivité, discrétion et sens du détail. Réservations de restaurants, transferts, expériences sur mesure, organisation de séjours, demandes de dernière minute ou assistance quotidienne : chaque besoin est pris en charge avec la plus grande attention.',
+    role: 'Vous permettre de profiter pleinement de votre temps, en toute sérénité.',
   },
   {
-    num: '03', name: 'Placement de Personnel', tag: 'Maison de maître',
-    hero: 'SÉLECTION ET SUPERVISION AUX MEILLEURS STANDARDS INTERNATIONAUX',
-    body: 'Le personnel de maison est le reflet de votre résidence. Maison Monnier sélectionne, forme et supervise chaque membre du personnel selon des critères d\'excellence rigoureux, issus de notre expérience auprès des plus grandes maisons internationales.',
-    role: 'Majordomes, gouvernantes, chefs privés, agents de sécurité — chaque profil sélectionné avec discernement.',
+    num: '03',
+    name: 'Placement Personnel de Maison',
+    tag: 'RECRUTEMENT, FORMATION, SUPERVISION',
     img: 'https://framerusercontent.com/images/T8gA0CqG7jRqTKwP4Z969SaJk4.jpg',
+    headline: 'Des talents d\'exception, au service de votre résidence',
+    body: 'Maison Monnier identifie, sélectionne et met en place un personnel de maison en parfaite adéquation avec votre style de vie, vos exigences et vos habitudes. Majordome, gouvernante, chef privé, chauffeur, personnel de service ou équipes saisonnières : chaque profil est choisi avec la plus grande rigueur, tant pour ses compétences techniques que pour son sens du service, sa discrétion et son savoir-être.',
+    role: 'Vous offrir une équipe de confiance, formée à nos standards d\'excellence et capable d\'anticiper vos besoins avec justesse et discrétion.',
   },
   {
-    num: '04', name: 'Gestion de Projets', tag: 'Rénovation & Événements',
-    hero: 'COORDINATION, OPTIMISATION ET EXCELLENCE À CHAQUE ÉTAPE',
-    body: 'Travaux, aménagements, rénovation, préparation saisonnière, organisation d\'événements privés ou mise en place de nouveaux services : nous pilotons chaque étape avec rigueur et discrétion. Sélection des intervenants, suivi opérationnel, contrôle de l\'avancement et respect de vos budgets.',
-    role: 'De la conception à la livraison, une gestion de projet irréprochable.',
+    num: '04',
+    name: 'Gestion de Projets',
+    tag: 'COORDINATION, OPTIMISATION ET EXCELLENCE À CHAQUE ÉTAPE',
     img: 'https://framerusercontent.com/images/EiAonMC4JhuW4zETmljLJLXzJnk.jpg',
+    headline: 'De l\'idée à la réalisation, une coordination sans compromis',
+    body: 'Maison Monnier vous accompagne dans la conduite et la coordination de vos projets liés à votre résidence et à votre art de vivre. Travaux, aménagements, rénovation, préparation saisonnière, organisation d\'événements privés ou mise en place de nouveaux services : nous pilotons chaque étape avec rigueur et discrétion.',
+    role: 'Sélection des intervenants, suivi opérationnel, contrôle de l\'avancement et respect de vos standards.',
   },
 ]
 
 export default function Services() {
   return (
-    <main className="bg-navy min-h-screen">
+    <main style={{ background: '#08101e', color: '#f5f0e8' }}>
       <Nav lang="fr" />
 
       {/* Hero */}
-      <section className="relative h-screen flex flex-col justify-end overflow-hidden">
+      <section className="relative flex flex-col justify-end overflow-hidden" style={{ height: '100vh', minHeight: '560px' }}>
         <div className="absolute inset-0">
-          <img src="https://framerusercontent.com/images/EiAonMC4JhuW4zETmljLJLXzJnk.jpg" alt="Services Maison Monnier" className="w-full h-full object-cover opacity-25" />
-          <div className="absolute inset-0 bg-gradient-to-b from-navy via-navy/20 to-navy"></div>
+          <img src="https://framerusercontent.com/images/EiAonMC4JhuW4zETmljLJLXzJnk.jpg" alt="Services Maison Monnier" className="w-full h-full object-cover" style={{ opacity: 0.25 }} />
+          <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, #08101e 0%, rgba(8,16,30,0.2) 50%, #08101e 100%)' }} />
         </div>
-        <div className="relative z-10 px-8 md:px-16 pb-16">
-          <p className="eyebrow mb-5">Nos services</p>
-          <h1 className="font-serif font-light italic text-[clamp(40px,7vw,88px)] text-cream leading-none mb-4">Expériences<br />d'exception</h1>
-          <div className="flex items-center gap-5 mt-6">
-            <div className="w-10 h-px bg-cream/30"></div>
-            <p className="sans text-[9px] tracking-[0.35em] uppercase text-cream/30">Une gestion d'exception, pensée pour votre tranquillité</p>
-          </div>
+        <div className="relative z-10" style={{ padding: '0 clamp(24px,6vw,80px) clamp(48px,6vw,80px)' }}>
+          <p className="eyebrow" style={{ marginBottom: '16px' }}>Nos services</p>
+          <h1 style={{ fontFamily: "'Cormorant Garamond',serif", fontSize: 'clamp(42px,7vw,88px)', fontWeight: 300, fontStyle: 'italic', lineHeight: 0.95, marginBottom: '24px', color: '#f5f0e8' }}>
+            Expériences<br />d'exception
+          </h1>
+          <div style={{ width: '40px', height: '0.5px', background: 'rgba(245,240,232,0.3)', marginBottom: '16px' }} />
+          <p className="sans" style={{ fontSize: '11px', letterSpacing: '0.35em', textTransform: 'uppercase', color: 'rgba(245,240,232,0.3)' }}>Une gestion d'exception, pensée pour votre tranquillité</p>
         </div>
       </section>
 
       {/* Intro */}
-      <section className="bg-cream py-16 md:py-24 px-8 md:px-16">
-        <div className="max-w-3xl">
-          <p className="eyebrow text-navy/30 mb-6">UNE GESTION D'EXCEPTION, PENSÉE POUR VOTRE TRANQUILLITÉ</p>
-          <p className="sans text-[12px] leading-[2] text-navy/65 mb-5">
+      <section style={{ background: '#f5f0e8', padding: 'clamp(56px,7vw,96px) clamp(24px,6vw,80px)' }}>
+        <div style={{ maxWidth: '720px' }}>
+          <p className="eyebrow-dark" style={{ marginBottom: '24px' }}>UNE GESTION D'EXCEPTION, PENSÉE POUR VOTRE TRANQUILLITÉ</p>
+          <p className="sans" style={{ fontSize: '13px', lineHeight: 2, color: 'rgba(8,16,30,0.65)', marginBottom: '20px' }}>
             Maison Monnier prend en charge l'ensemble de la gestion de votre résidence avec le plus haut niveau d'exigence : supervision du personnel, coordination technique, préparation des séjours et services de conciergerie privée.
           </p>
-          <p className="sans text-[12px] leading-[2] text-navy/65">
+          <p className="sans" style={{ fontSize: '13px', lineHeight: 2, color: 'rgba(8,16,30,0.65)' }}>
             Grâce à une expérience acquise auprès d'établissements de renom tels que Four Seasons Hotels and Resorts et Mandarin Oriental Exceptional Homes, ainsi qu'auprès d'une clientèle internationale UHNW, Maison Monnier garantit une organisation fluide, discrète et entièrement personnalisée.
           </p>
         </div>
       </section>
 
-      <Marquee lang="fr" />
-
       {/* Quote */}
-      <section className="bg-navy-mid py-16 px-8 md:px-16 text-center border-y border-cream/[0.06]">
-        <p className="font-serif font-light italic text-[clamp(18px,3vw,28px)] text-cream/70 max-w-2xl mx-auto">
+      <section style={{ background: '#0c1420', padding: 'clamp(48px,6vw,72px) clamp(24px,6vw,80px)', textAlign: 'center', borderTop: '0.5px solid rgba(245,240,232,0.05)', borderBottom: '0.5px solid rgba(245,240,232,0.05)' }}>
+        <p style={{ fontFamily: "'Cormorant Garamond',serif", fontSize: 'clamp(18px,2.5vw,26px)', fontStyle: 'italic', fontWeight: 300, color: 'rgba(245,240,232,0.65)', maxWidth: '680px', margin: '0 auto 12px', lineHeight: 1.6 }}>
           « Le vrai luxe, ce n'est pas ce que l'on possède, mais la manière dont on est servi. »
         </p>
-        <p className="sans text-[9px] tracking-[0.35em] uppercase text-cream/25 mt-5">— Maison Monnier</p>
+        <p className="sans" style={{ fontSize: '10px', letterSpacing: '0.4em', textTransform: 'uppercase', color: 'rgba(245,240,232,0.22)' }}>— Maison Monnier</p>
+      </section>
+
+      {/* Services list overview */}
+      <section style={{ background: '#08101e', padding: 'clamp(56px,7vw,80px) clamp(24px,6vw,80px)' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1px', background: 'rgba(245,240,232,0.05)' }}>
+          {services.map((s, i) => (
+            <a key={i} href={`#service-${i}`} style={{ background: '#08101e', padding: 'clamp(32px,4vw,48px)', display: 'block', textDecoration: 'none' }}>
+              <div className="overflow-hidden" style={{ aspectRatio: '16/9', marginBottom: '24px', background: '#0d1a2a' }}>
+                <img src={s.img} alt={s.name} className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" style={{ opacity: 0.6 }} />
+              </div>
+              <p className="sans" style={{ fontSize: '10px', letterSpacing: '0.25em', color: 'rgba(245,240,232,0.2)', marginBottom: '10px' }}>{s.num}</p>
+              <h2 style={{ fontFamily: "'Cormorant Garamond',serif", fontSize: 'clamp(20px,2.5vw,28px)', fontWeight: 300, fontStyle: 'italic', color: '#f5f0e8', marginBottom: '8px', lineHeight: 1.1 }}>{s.name}</h2>
+              <p className="sans" style={{ fontSize: '9px', letterSpacing: '0.15em', textTransform: 'uppercase', color: 'rgba(245,240,232,0.25)', lineHeight: 1.5 }}>{s.tag}</p>
+              <p className="sans" style={{ fontSize: '10px', letterSpacing: '0.15em', textTransform: 'uppercase', color: 'rgba(245,240,232,0.4)', marginTop: '16px' }}>En savoir plus →</p>
+            </a>
+          ))}
+        </div>
       </section>
 
       {/* Services detail */}
-      {services.map((svc, i) => (
-        <section key={i} className={`py-16 md:py-24 ${i % 2 === 0 ? 'bg-navy' : 'bg-navy-light'}`}>
-          <div className="px-8 md:px-16 grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+      {services.map((s, i) => (
+        <section key={i} id={`service-${i}`} style={{ background: i % 2 === 0 ? '#0c1420' : '#08101e', padding: 'clamp(64px,8vw,100px) clamp(24px,6vw,80px)' }}>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-center" style={{ flexDirection: i % 2 === 1 ? 'row-reverse' : 'row' }}>
             <div className={i % 2 === 1 ? 'md:order-2' : ''}>
-              <p className="sans text-[9px] tracking-[0.3em] text-cream/20 mb-4">{svc.num}</p>
-              <h2 className="font-serif font-light italic text-[clamp(28px,4vw,44px)] text-cream mb-6 leading-tight">{svc.name}</h2>
-              <p className="sans text-[8px] tracking-[0.3em] uppercase text-cream/30 mb-8 border border-cream/10 inline-block px-3 py-1.5">{svc.hero}</p>
-              <p className="sans text-[11px] leading-[1.95] text-cream/45 mb-4">{svc.body}</p>
-              <p className="sans text-[11px] leading-[1.95] text-cream/30 mb-8 italic">{svc.role}</p>
-              <Link href="/contact" className="btn-ghost">Nous contacter <span>→</span></Link>
+              <p className="sans" style={{ fontSize: '10px', letterSpacing: '0.3em', color: 'rgba(245,240,232,0.2)', marginBottom: '16px' }}>{s.num}</p>
+              <h2 style={{ fontFamily: "'Cormorant Garamond',serif", fontSize: 'clamp(28px,4vw,48px)', fontWeight: 300, fontStyle: 'italic', color: '#f5f0e8', lineHeight: 1.1, marginBottom: '16px' }}>{s.name}</h2>
+              <p className="sans" style={{ fontSize: '9px', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(245,240,232,0.3)', marginBottom: '28px', lineHeight: 1.6, border: '0.5px solid rgba(245,240,232,0.08)', padding: '10px 16px', display: 'inline-block' }}>{s.tag}</p>
+              <h3 style={{ fontFamily: "'Cormorant Garamond',serif", fontSize: 'clamp(20px,2.5vw,28px)', fontWeight: 300, fontStyle: 'italic', color: 'rgba(245,240,232,0.8)', marginBottom: '16px', lineHeight: 1.3 }}>{s.headline}</h3>
+              <p className="sans" style={{ fontSize: '12px', lineHeight: 1.95, color: 'rgba(245,240,232,0.45)', marginBottom: '16px' }}>{s.body}</p>
+              <p className="sans" style={{ fontSize: '11px', lineHeight: 1.8, color: 'rgba(245,240,232,0.3)', fontStyle: 'italic', marginBottom: '32px' }}>Notre rôle : {s.role}</p>
+              <Link href="/contact" className="btn-ghost">Nous contacter →</Link>
             </div>
             <div className={`relative ${i % 2 === 1 ? 'md:order-1' : ''}`}>
-              <div className="aspect-[4/3] overflow-hidden">
-                <img src={svc.img} alt={svc.name} className="w-full h-full object-cover opacity-70 hover:scale-105 transition-transform duration-700" />
+              <div className="overflow-hidden" style={{ aspectRatio: '4/3' }}>
+                <img src={s.img} alt={s.name} className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" style={{ opacity: 0.72 }} />
               </div>
-              <div className="absolute -bottom-3 -right-3 w-2/3 h-1/2 border border-cream/8 -z-10"></div>
+              <div className="absolute" style={{ bottom: '-12px', right: '-12px', width: '60%', height: '40%', border: '0.5px solid rgba(245,240,232,0.06)', zIndex: -1 }} />
             </div>
           </div>
         </section>
       ))}
 
       {/* CTA */}
-      <section className="bg-cream py-20 px-8 md:px-16 text-center">
-        <p className="eyebrow text-navy/30 mb-6">Nous Contacter</p>
-        <h2 className="font-serif font-light italic text-[clamp(32px,5vw,56px)] text-navy mb-8">Orchestrons votre expérience.</h2>
-        <Link href="/contact" className="btn-primary">Prendre rendez-vous</Link>
+      <section style={{ background: '#f5f0e8', padding: 'clamp(56px,7vw,80px) clamp(24px,6vw,80px)', textAlign: 'center' }}>
+        <p className="eyebrow-dark" style={{ marginBottom: '16px' }}>Nous Contacter</p>
+        <h2 style={{ fontFamily: "'Cormorant Garamond',serif", fontSize: 'clamp(32px,5vw,56px)', fontWeight: 300, fontStyle: 'italic', color: '#08101e', marginBottom: '32px' }}>Orchestrons votre expérience.</h2>
+        <Link href="/contact" className="btn-dark">Prendre rendez-vous</Link>
       </section>
 
       <Footer lang="fr" />

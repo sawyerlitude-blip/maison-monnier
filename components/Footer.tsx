@@ -1,89 +1,53 @@
 import Link from 'next/link'
 
-const Footer = ({ lang = 'fr' }: { lang?: string }) => {
-  const links = lang === 'fr'
-    ? [
-        { label: 'Nos Services', href: '/services' },
-        { label: 'Nos Propriétés', href: '/proprietes' },
-        { label: 'À Propos', href: '/a-propos' },
-        { label: 'Nous Contacter', href: '/contact' },
-      ]
-    : [
-        { label: 'Services', href: '/en/services' },
-        { label: 'Properties', href: '/en/properties' },
-        { label: 'About', href: '/en/about' },
-        { label: 'Contact', href: '/en/contact' },
-      ]
-
+export default function Footer({ lang = 'fr' }: { lang?: string }) {
   return (
-    <footer className="bg-[#040a10] border-t border-cream/5">
-      {/* Main footer */}
-      <div className="px-8 md:px-16 py-16 grid grid-cols-1 md:grid-cols-3 gap-12">
+    <footer style={{ background: '#060d14' }}>
+      <div style={{ padding: 'clamp(48px,6vw,72px) clamp(24px,6vw,80px)', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '40px' }}>
         <div>
-          <div className="flex items-center gap-3 mb-6">
-            <div className="w-9 h-9 border border-cream/35 flex items-center justify-center text-cream font-light text-base font-serif">M</div>
-            <span className="sans text-[9px] tracking-[0.35em] uppercase text-cream/40">Maison Monnier</span>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '16px' }}>
+            <div style={{ width: '34px', height: '34px', border: '0.5px solid rgba(245,240,232,0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: "'Cormorant Garamond',serif", fontSize: '16px', fontWeight: 300, color: '#f5f0e8' }}>M</div>
+            <span style={{ fontFamily: 'Montserrat,sans-serif', fontSize: '9px', letterSpacing: '0.35em', textTransform: 'uppercase', color: 'rgba(245,240,232,0.35)' }}>Maison Monnier</span>
           </div>
-          <p className="sans text-[11px] text-cream/30 leading-relaxed max-w-xs">
-            {lang === 'fr'
-              ? 'Conciergerie privée, gestion de résidence et butler de luxe sur la Côte d\'Azur.'
-              : 'Private concierge, residence management and luxury butler service on the Côte d\'Azur.'}
+          <p style={{ fontFamily: 'Montserrat,sans-serif', fontSize: '11px', color: 'rgba(245,240,232,0.28)', lineHeight: 1.8, maxWidth: '240px' }}>
+            {lang === 'fr' ? "Conciergerie privée, gestion de résidence et butler de luxe sur la Côte d'Azur." : "Private concierge, residence management and luxury butler service on the Côte d'Azur."}
           </p>
-          <div className="flex gap-4 mt-6">
-            <a href="https://www.instagram.com/maison.monnier" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="w-8 h-8 border border-cream/15 flex items-center justify-center hover:border-cream/40 transition-colors">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-cream/50">
-                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
-              </svg>
+          <div style={{ display: 'flex', gap: '10px', marginTop: '20px' }}>
+            <a href="https://www.instagram.com/maison.monnier" target="_blank" rel="noopener noreferrer" style={{ width: '32px', height: '32px', border: '0.5px solid rgba(245,240,232,0.12)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="rgba(245,240,232,0.45)" strokeWidth="1.5"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
             </a>
-            <a href="http://linkedin.com/in/sébastien-monnier-davaille-6b697a46" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="w-8 h-8 border border-cream/15 flex items-center justify-center hover:border-cream/40 transition-colors">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-cream/50">
-                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/>
-              </svg>
+            <a href="http://linkedin.com/in/sébastien-monnier-davaille-6b697a46" target="_blank" rel="noopener noreferrer" style={{ width: '32px', height: '32px', border: '0.5px solid rgba(245,240,232,0.12)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="rgba(245,240,232,0.45)" strokeWidth="1.5"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
             </a>
           </div>
         </div>
-
         <div>
-          <p className="sans text-[9px] tracking-[0.35em] uppercase text-cream/25 mb-6">{lang === 'fr' ? 'Navigation' : 'Navigation'}</p>
-          <div className="flex flex-col gap-4">
-            {links.map(l => (
-              <Link key={l.href} href={l.href} className="sans text-[10px] tracking-[0.2em] uppercase text-cream/40 hover:text-cream/70 transition-colors">{l.label}</Link>
+          <p style={{ fontFamily: 'Montserrat,sans-serif', fontSize: '9px', letterSpacing: '0.35em', textTransform: 'uppercase', color: 'rgba(245,240,232,0.22)', marginBottom: '20px' }}>Navigation</p>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+            {(lang === 'fr'
+              ? [{ label: 'Nos Services', href: '/services' }, { label: 'Nos Propriétés', href: '/proprietes' }, { label: 'À Propos', href: '/a-propos' }, { label: 'Nous Contacter', href: '/contact' }]
+              : [{ label: 'Services', href: '/en/services' }, { label: 'Properties', href: '/en/properties' }, { label: 'About', href: '/en/about' }, { label: 'Contact', href: '/en/contact' }]
+            ).map(l => (
+              <Link key={l.href} href={l.href} style={{ fontFamily: 'Montserrat,sans-serif', fontSize: '10px', letterSpacing: '0.15em', textTransform: 'uppercase', color: 'rgba(245,240,232,0.35)', textDecoration: 'none', transition: 'color 0.2s' }}>{l.label}</Link>
             ))}
           </div>
         </div>
-
         <div>
-          <p className="sans text-[9px] tracking-[0.35em] uppercase text-cream/25 mb-6">{lang === 'fr' ? 'Contact' : 'Contact'}</p>
-          <div className="flex flex-col gap-4">
-            <a href="mailto:contact@maisonmonnier.fr" className="sans text-[10px] text-cream/40 hover:text-cream/70 transition-colors flex items-center gap-3">
-              <span className="text-cream/20">—</span> contact@maisonmonnier.fr
+          <p style={{ fontFamily: 'Montserrat,sans-serif', fontSize: '9px', letterSpacing: '0.35em', textTransform: 'uppercase', color: 'rgba(245,240,232,0.22)', marginBottom: '20px' }}>Contact</p>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+            <a href="mailto:contact@maisonmonnier.fr" style={{ fontFamily: 'Montserrat,sans-serif', fontSize: '10px', color: 'rgba(245,240,232,0.35)', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <span style={{ color: 'rgba(245,240,232,0.18)' }}>—</span> par email
             </a>
-            <a href="tel:" className="sans text-[10px] text-cream/40 hover:text-cream/70 transition-colors flex items-center gap-3">
-              <span className="text-cream/20">—</span> {lang === 'fr' ? 'Par téléphone' : 'By phone'}
+            <a href="tel:" style={{ fontFamily: 'Montserrat,sans-serif', fontSize: '10px', color: 'rgba(245,240,232,0.35)', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <span style={{ color: 'rgba(245,240,232,0.18)' }}>—</span> par téléphone
             </a>
-            <Link href={lang === 'fr' ? '/contact' : '/en/contact'} className="btn-ghost mt-2 text-[9px]">
-              {lang === 'fr' ? 'Prendre rendez-vous' : 'Book a consultation'}
-              <span>→</span>
-            </Link>
           </div>
         </div>
       </div>
-
-      {/* Bottom bar */}
-      <div className="border-t border-cream/5 px-8 md:px-16 py-5 flex flex-col sm:flex-row justify-between items-center gap-3">
-        <p className="sans text-[8px] tracking-[0.2em] uppercase text-cream/20">© 2026 Maison Monnier. All rights reserved.</p>
-        <p className="sans text-[8px] text-cream/15">A CC Agency Creation</p>
-        <div className="flex gap-6">
-          <Link href={lang === 'fr' ? '/mentions-legales' : '/en/legal'} className="sans text-[8px] tracking-[0.15em] uppercase text-cream/20 hover:text-cream/40 transition-colors">
-            {lang === 'fr' ? 'Mentions légales' : 'Legal'}
-          </Link>
-          <Link href={lang === 'fr' ? '/confidentialite' : '/en/privacy'} className="sans text-[8px] tracking-[0.15em] uppercase text-cream/20 hover:text-cream/40 transition-colors">
-            {lang === 'fr' ? 'Confidentialité' : 'Privacy'}
-          </Link>
-        </div>
+      <div style={{ borderTop: '0.5px solid rgba(245,240,232,0.05)', padding: '18px clamp(24px,6vw,80px)', display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'center', gap: '8px' }}>
+        <p style={{ fontFamily: 'Montserrat,sans-serif', fontSize: '9px', letterSpacing: '0.15em', textTransform: 'uppercase', color: 'rgba(245,240,232,0.15)' }}>© 2026 Maison Monnier. All rights reserved.</p>
+        <p style={{ fontFamily: 'Montserrat,sans-serif', fontSize: '9px', color: 'rgba(245,240,232,0.12)' }}>A CC Agency Creation</p>
       </div>
     </footer>
   )
 }
-
-export default Footer
