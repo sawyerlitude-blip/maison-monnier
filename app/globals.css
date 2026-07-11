@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Montserrat:wght@300;400;500;600&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --navy: #0a0f1a;
+  --navy-light: #0d1520;
+  --navy-mid: #162030;
+  --cream: #f5f0e8;
+  --gold: #c8aa64;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { background: var(--navy); color: var(--cream); font-family: 'Cormorant Garamond', Georgia, serif; overflow-x: hidden; }
+
+.sans { font-family: 'Montserrat', Arial, sans-serif; }
+.eyebrow { font-family: 'Montserrat', sans-serif; font-size: 9px; letter-spacing: 0.4em; text-transform: uppercase; color: rgba(245,240,232,0.3); }
+.btn-primary { font-family: 'Montserrat', sans-serif; font-size: 9px; letter-spacing: 0.25em; text-transform: uppercase; background: var(--cream); color: var(--navy); padding: 14px 28px; cursor: pointer; display: inline-block; transition: opacity 0.2s; }
+.btn-primary:hover { opacity: 0.88; }
+.btn-ghost { font-family: 'Montserrat', sans-serif; font-size: 9px; letter-spacing: 0.25em; text-transform: uppercase; border: 0.5px solid rgba(245,240,232,0.3); color: var(--cream); padding: 13px 28px; cursor: pointer; display: inline-flex; align-items: center; gap: 10px; transition: border-color 0.2s; }
+.btn-ghost:hover { border-color: rgba(245,240,232,0.6); }
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--navy); }
+::-webkit-scrollbar-thumb { background: rgba(245,240,232,0.15); border-radius: 2px; }
+
+/* Marquee */
+@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+.marquee-track { animation: marquee 20s linear infinite; }
+
+/* Fade in */
+@keyframes fadeUp { from { opacity:0; transform:translateY(24px); } to { opacity:1; transform:translateY(0); } }
+.fade-up { animation: fadeUp 0.8s ease forwards; }
+
+/* Line animation */
+@keyframes growLine { from { width: 0; } to { width: 40px; } }
