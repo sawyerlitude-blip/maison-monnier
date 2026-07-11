@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 
-const Nav = ({ lang = 'fr' }: { lang?: string }) => {
+export default function Nav({ lang = 'fr' }: { lang?: string }) {
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
 
@@ -13,48 +13,73 @@ const Nav = ({ lang = 'fr' }: { lang?: string }) => {
   }, [])
 
   const links = lang === 'fr'
-    ? [{ label: 'Nos Services', href: '/services' }, { label: 'Nos Propriétés', href: '/proprietes' }, { label: 'À Propos', href: '/a-propos' }]
-    : [{ label: 'Our Services', href: '/en/services' }, { label: 'Properties', href: '/en/properties' }, { label: 'About', href: '/en/about' }]
+    ? [
+        { label: 'Nos Services', href: '/services' },
+        { label: 'Nos Propriétés', href: '/proprietes' },
+        { label: 'À Propos', href: '/a-propos' },
+      ]
+    : [
+        { label: 'Our Services', href: '/en/services' },
+        { label: 'Properties', href: '/en/properties' },
+        { label: 'About', href: '/en/about' },
+      ]
+
+  const contactHref = lang === 'fr' ? '/contact' : '/en/contact'
+  const altHref = lang === 'fr' ? '/en' : '/'
+  const altLabel = lang === 'fr' ? 'EN' : 'FR'
+  const currLabel = lang === 'fr' ? 'FR' : 'EN'
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? 'bg-navy/95 backdrop-blur-sm border-b border-cream/5' : 'bg-transparent'}`}>
+    <nav
+      className="fixed top-0 left-0 right-0 z-50 transition-all duration-500"
+      style={{
+        background: scrolled ? 'rgba(8,16,30,0.94)' : 'transparent',
+        backdropFilter: scrolled ? 'blur(8px)' : 'none',
+        borderBottom: scrolled ? '0.5px solid rgba(245,240,232,0.06)' : 'none',
+      }}
+    >
       <div className="flex items-center justify-between px-8 md:px-12 py-5">
-        <Link href={lang === 'fr' ? '/' : '/en'} className="flex items-center gap-3">
-          <div className="w-9 h-9 border border-cream/40 flex items-center justify-center text-cream font-light text-base font-serif tracking-wider">M</div>
-          <span className="sans text-[9px] tracking-[0.35em] uppercase text-cream/50 hidden sm:block">Maison Monnier</span>
+        {/* Logo */}
+        <Link href={lang === 'fr' ? '/' : '/en'} className="flex items-center gap-3" style={{ textDecoration: 'none' }}>
+          <div
+            className="flex items-center justify-center"
+            style={{ width: '38px', height: '38px', border: '0.5px solid rgba(245,240,232,0.35)', fontFamily: "'Cormorant Garamond',serif", fontSize: '18px', fontWeight: 300, color: '#f5f0e8' }}
+          >M</div>
+          <span className="hidden sm:block" style={{ fontFamily: 'Montserrat,sans-serif', fontSize: '10px', letterSpacing: '0.35em', textTransform: 'uppercase', color: 'rgba(245,240,232,0.45)' }}>
+            Maison Monnier
+          </span>
         </Link>
 
-        <div className="hidden md:flex items-center gap-10">
+        {/* Desktop links */}
+        <div className="hidden md:flex items-center gap-8">
           {links.map(l => (
-            <Link key={l.href} href={l.href} className="sans text-[9px] tracking-[0.25em] uppercase text-cream/55 hover:text-cream transition-colors duration-200">{l.label}</Link>
+            <Link key={l.href} href={l.href} className="nav-link">{l.label}</Link>
           ))}
-          <div className="flex items-center gap-3 ml-4">
-            <Link href={lang === 'fr' ? '/en' : '/'} className="sans text-[9px] tracking-[0.2em] text-cream/30 hover:text-cream/60 transition-colors">
-              {lang === 'fr' ? 'EN' : 'FR'}
-            </Link>
-            <span className="text-cream/15 text-[10px]">/</span>
-            <span className="sans text-[9px] tracking-[0.2em] text-cream/55">{lang === 'fr' ? 'FR' : 'EN'}</span>
+          <div className="flex items-center gap-2 ml-2">
+            <Link href={altHref} style={{ fontFamily: 'Montserrat,sans-serif', fontSize: '10px', letterSpacing: '0.2em', color: 'rgba(245,240,232,0.3)', textDecoration: 'none' }}>{altLabel}</Link>
+            <span style={{ color: 'rgba(245,240,232,0.15)', fontSize: '11px' }}>/</span>
+            <span style={{ fontFamily: 'Montserrat,sans-serif', fontSize: '10px', letterSpacing: '0.2em', color: 'rgba(245,240,232,0.55)' }}>{currLabel}</span>
           </div>
-          <Link href={lang === 'fr' ? '/contact' : '/en/contact'} className="btn-primary text-[9px] ml-2">
+          <Link href={contactHref} className="btn-primary" style={{ marginLeft: '8px', fontSize: '10px', padding: '10px 20px' }}>
             {lang === 'fr' ? 'Nous Contacter' : 'Contact Us'}
           </Link>
         </div>
 
         {/* Mobile burger */}
         <button className="md:hidden flex flex-col gap-1.5 p-2" onClick={() => setMenuOpen(!menuOpen)} aria-label="Menu">
-          <span className={`block w-5 h-px bg-cream/60 transition-all ${menuOpen ? 'rotate-45 translate-y-2' : ''}`}></span>
-          <span className={`block w-5 h-px bg-cream/60 transition-all ${menuOpen ? 'opacity-0' : ''}`}></span>
-          <span className={`block w-5 h-px bg-cream/60 transition-all ${menuOpen ? '-rotate-45 -translate-y-2' : ''}`}></span>
+          <span className="block h-px bg-cream/60 transition-all" style={{ width: '22px', background: 'rgba(245,240,232,0.6)', transform: menuOpen ? 'rotate(45deg) translateY(7px)' : 'none' }} />
+          <span className="block h-px" style={{ width: '22px', background: 'rgba(245,240,232,0.6)', opacity: menuOpen ? 0 : 1, transition: 'opacity 0.2s' }} />
+          <span className="block h-px bg-cream/60 transition-all" style={{ width: '22px', background: 'rgba(245,240,232,0.6)', transform: menuOpen ? 'rotate(-45deg) translateY(-7px)' : 'none' }} />
         </button>
       </div>
 
       {/* Mobile menu */}
       {menuOpen && (
-        <div className="md:hidden bg-navy/98 border-t border-cream/5 px-8 py-8 flex flex-col gap-6">
+        <div style={{ background: 'rgba(8,16,30,0.98)', borderTop: '0.5px solid rgba(245,240,232,0.06)', padding: '24px 32px', display: 'flex', flexDirection: 'column', gap: '20px' }}>
           {links.map(l => (
-            <Link key={l.href} href={l.href} onClick={() => setMenuOpen(false)} className="sans text-[11px] tracking-[0.3em] uppercase text-cream/70">{l.label}</Link>
+            <Link key={l.href} href={l.href} className="nav-link" style={{ fontSize: '13px' }} onClick={() => setMenuOpen(false)}>{l.label}</Link>
           ))}
-          <Link href={lang === 'fr' ? '/contact' : '/en/contact'} className="btn-primary text-center mt-4" onClick={() => setMenuOpen(false)}>
+          <Link href={contactHref} className="btn-primary" style={{ textAlign: 'center', marginTop: '8px' }} onClick={() => setMenuOpen(false)}>
             {lang === 'fr' ? 'Nous Contacter' : 'Contact Us'}
           </Link>
         </div>
@@ -62,5 +87,3 @@ const Nav = ({ lang = 'fr' }: { lang?: string }) => {
     </nav>
   )
 }
-
-export default Nav
